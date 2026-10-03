@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>まち＋ 順天高校版</title>
+<style>
+:root{--bg:#f6f8fc;--card:#fff;--tx:#1b2438;--mu:#5d6882;--pri:#1e3a8a;--acc:#f59e0b;--bd:#e3e8f2;--do:#e8f6ee;--ng:#fdecec;--nt:#fff6e0;--hp:#e9f0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1524;--card:#18203a;--tx:#e8ecf7;--mu:#9aa6c4;--pri:#8fb0ff;--bd:#2a3556;--do:#12301f;--ng:#3a1818;--nt:#3a2f10;--hp:#16264a}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Noto Sans SC",sans-serif}
+a{color:inherit;text-decoration:none}
+header{background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.hd{max-width:960px;margin:auto;padding:10px 16px;display:flex;align-items:center;gap:12px;justify-content:space-between}
+.logo{font-weight:800;color:var(--pri);font-size:20px}.logo small{display:block;font-size:11px;color:var(--mu);font-weight:600;margin-top:-4px}
+.lang{display:flex;gap:4px}.lang button{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:4px 10px;font-size:13px;font-weight:700;cursor:pointer}
+.lang button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+nav{max-width:960px;margin:auto;display:flex;gap:6px;overflow-x:auto;padding:0 16px 10px}
+nav a{white-space:nowrap;padding:6px 12px;border-radius:999px;font-size:14px;color:var(--mu);font-weight:600}
+nav a.on{background:var(--hp);color:var(--pri)}
+main{max-width:960px;margin:auto;padding:20px 16px 40px;min-height:70vh}
+.hero{background:linear-gradient(135deg,var(--pri),#3b63d6);color:#fff;border-radius:24px;padding:28px 22px}
+.hero h1{margin:0 0 8px;font-size:clamp(22px,5vw,32px);line-height:1.3}.hero p{margin:0;opacity:.92}
+.sub{color:var(--mu);margin:12px 4px}
+.search{margin:18px 0}.search input{width:100%;padding:14px 18px;border-radius:16px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font-size:16px}
+.search input:focus{outline:none;border-color:var(--pri)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.chips button{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:20px;display:block;transition:.15s}
+.cat:hover{transform:translateY(-3px);box-shadow:0 8px 24px #1e3a8a22}
+.cat .ic{font-size:34px}.cat b{display:block;font-size:18px;margin-top:6px}.cat span{color:var(--mu);font-size:14px}
+h2{font-size:22px;margin:26px 0 10px}h3{font-size:16px;margin:0 0 8px}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bg{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:18px;text-align:center}
+.bg small{color:var(--mu);font-weight:600}.bg div{font-size:clamp(28px,8vw,44px);font-weight:800;color:var(--pri);line-height:1.2}.bg em{font-style:normal;color:var(--mu);font-size:14px}
+.sec{border-radius:18px;padding:16px 18px;margin:12px 0}.sec ul{margin:0;padding-left:20px}.sec li{margin:4px 0}
+.do{background:var(--do)}.ng{background:var(--ng)}.nt{background:var(--nt)}.hp{background:var(--hp)}
+.tw{overflow-x:auto;border-radius:16px;border:1px solid var(--bd);background:var(--card)}
+table{width:100%;border-collapse:collapse}th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--bd)}th{background:var(--hp);color:var(--pri);font-size:14px}tr:last-child td{border:0}td.t{font-weight:800;color:var(--pri);white-space:nowrap}
+.flow{display:flex;flex-direction:column;align-items:stretch;gap:0}
+.fs{background:var(--card);border:2px solid var(--bd);border-radius:18px;padding:16px 18px}.fs b{display:block;color:var(--pri)}
+.fs.a{border-color:#22a35a}.fs.b{border-color:var(--acc)}.fs.c{border-color:#e05252}
+.ar{text-align:center;font-size:22px;color:var(--mu);line-height:1.2;margin:4px 0}
+.res a{display:block;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 16px;margin:8px 0}.res small{color:var(--pri);font-weight:700}
+footer{background:var(--card);border-top:1px solid var(--bd);padding:20px 16px 28px;color:var(--mu);font-size:13px;text-align:center}footer p{max-width:720px;margin:6px auto}
+.tbn{display:flex;gap:8px;margin:14px 0 4px}.tbn button{flex:1;padding:10px;border-radius:14px;border:2px solid var(--bd);background:var(--card);color:var(--tx);font-weight:700;font-size:16px;cursor:pointer}.tbn button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.ck{list-style:none;padding:0!important}.ck li{margin:6px 0}.ck label{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;cursor:pointer}.ck input{width:22px;height:22px;margin-top:3px;accent-color:#22a35a;flex:none}.ck input:checked+span{opacity:.5;text-decoration:line-through}
+.ev{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:18px 20px;margin:14px 0}.ev h3{font-size:19px;margin:4px 0 10px;color:var(--pri)}.tag{background:var(--acc);color:#1b2438;border-radius:999px;font-size:12px;font-weight:800;padding:2px 10px}.ev dl{margin:0;display:grid;grid-template-columns:84px 1fr;gap:6px 12px}.ev dt{color:var(--mu);font-weight:700;font-size:14px}.ev dd{margin:0}
+@media(max-width:520px){.big{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="hd"><a class="logo" href="#/home">まち＋<small id="sn"></small></a><div class="lang" id="lg"></div></div><nav id="nv"></nav></header>
+<main id="app"></main>
+<footer><p id="dc"></p><p>© まち＋ 順天高校版</p></footer>
+<script>
+const LN=["JP","EN","ES","中文"];let g=0;try{g=+localStorage.getItem("mjl")||0}catch(e){}
+const x=a=>Array.isArray(a)?a[g]:a;
+const U={
+sn:["順天高校版","Junten High School edition","Edición Junten High School","顺天高中版"],
+dc:["※本サイトは学校生活に関する情報を分かりやすく整理したものであり、正式な校則・学校からの連絡に代わるものではありません。最新の情報や正式な判断については、学校からの案内を確認してください。","* This site summarizes school-life information in an easy-to-read way. It does not replace the official school rules or notices from the school. For the latest information and official decisions, please check the school's announcements.","* Este sitio resume de forma clara la información de la vida escolar. No sustituye el reglamento oficial ni los avisos del colegio. Para la información más reciente y las decisiones oficiales, consulta los comunicados del colegio.","※本网站以通俗易懂的方式整理了学校生活相关信息，不能代替正式校规和学校通知。最新信息及正式判定，请以学校的通知为准。"],
+h1:["順天高校での生活を、もっと分かりやすく。","Make life at Junten High School easier to understand.","La vida en Junten High School, más fácil de entender.","让顺天高中的校园生活更容易理解。"],
+h2:["校則・学校生活・災害時の対応などを、必要なときにすぐ確認できます。","Check school rules, daily life, and disaster procedures whenever you need them.","Consulta las normas, la vida escolar y qué hacer en caso de desastre cuando lo necesites.","校规、校园生活、灾害时的应对等，随时都能快速查看。"],
+sp:["ルールを検索","Search rules","Buscar normas","搜索规则"],
+no:["見つかりませんでした。記載のない内容は、学校の資料を確認してください。","Nothing found. For anything not listed here, please check the school's materials.","No se encontró nada. Para lo que no aparece aquí, consulta los materiales del colegio.","没有找到。未记载的内容，请查看学校的资料。"],
+soon:["このページは準備中です。内容は学校の資料を確認してください。","This page is coming soon. Please check the school's materials for now.","Esta página estará disponible pronto. Mientras tanto, consulta los materiales del colegio.","本页面准备中。目前请查看学校的资料。"],
+kw:[["遅刻","制服","スマホ","自転車","試験","電車"],["late","uniform","phone","bicycle","exam","train"],["tarde","uniforme","móvil","bicicleta","examen","tren"],["迟到","校服","手机","自行车","考试","电车"]]};
+const P=[
+["home","",["ホーム","Home","Inicio","首页"]],
+["life","",["学校生活","School life","Vida escolar","学校生活"],["登校・下校、施設利用など","Arriving, leaving, facilities","Entrada, salida, instalaciones","上学、放学、设施使用等"]],
+["dress","",["服装・身だしなみ","Dress & grooming","Uniforme y aspecto","服装・仪容"],["制服、髪型、装飾品など","Uniform, hair, accessories","Uniforme, peinado, accesorios","校服、发型、饰品等"]],
+["absence","",["欠席・遅刻・早退","Absence & lateness","Ausencias y retrasos","缺勤・迟到・早退"],["Classiへの連絡方法など","How to report via Classi","Cómo avisar por Classi","通过Classi联系的方法等"]],
+["disaster","",["災害・交通機関","Disasters & transit","Desastres y transporte","灾害・交通"],["電車が止まったときなど","When trains stop","Cuando se detienen los trenes","电车停运时等"]],
+["exam","",["定期試験","Exams","Exámenes","定期考试"],["試験前・試験中のルール","Rules before and during exams","Normas antes y durante el examen","考前・考试中的规则"]],
+["events","",["イベント","Events","Eventos","活动"],["学校行事・イベント情報","School events and info","Actividades escolares","学校活动・信息"]]];
+const D={
+life:[
+{k:"big",a:[["登校時間","Arrive by","Hora de llegada","到校时间"],"8:10",""],b:[["最終下校","Last to leave","Salida máxima","最晚离校"],"18:00",["原則","in principle","por norma","原则上"]]},
+{k:"sec",c:"do",h:["やること","What to do","Qué hacer","要做的事"],i:[
+["繰り返し遅刻しないようにする","Avoid being late again and again.","Evita llegar tarde repetidamente.","避免反复迟到。"],
+["早退・外出が必要な場合は、学校の許可を得る","If you need to leave early or go out, get the school's permission.","Si necesitas salir antes o durante el día, pide permiso al colegio.","需要早退或外出时，要先获得学校许可。"],
+["交通法規を守り、通学中も生徒としての品位を保つ","Follow traffic laws and behave as a student on the way to and from school.","Respeta las normas de tráfico y mantén una conducta digna como estudiante en el trayecto.","遵守交通法规，上学放学路上也要保持学生应有的品行。"]]},
+{k:"sec",c:"ng",h:["できないこと","Not allowed","Qué no se puede hacer","不能做的事"],i:[["下校時間より前に学校外へ出ることは原則できない","In principle, you cannot leave school before dismissal time.","Por norma, no se puede salir del colegio antes de la hora de salida.","原则上，放学时间之前不能离开学校。"]]},
+{k:"sec",c:"nt",h:["覚えておくこと","Good to know","Conviene recordar","请记住"],i:[["自転車通学の場合、通学は最寄り駅までとする","If you commute by bicycle, ride only as far as the nearest station.","Si vienes en bicicleta, solo puedes llegar hasta la estación más cercana.","骑自行车上学的话，只能骑到最近的车站。"]]},
+{k:"tbl",h:[["高校1年生の施設利用時間","Facility hours (Grade 10)","Horario de instalaciones (1.º de kōkō)","高一年级设施使用时间"],["〜まで","Until","Hasta","截至"]],r:[
+[["教室","Classrooms","Aulas","教室"],"18:00"],[["個別学習室","Individual study rooms","Salas de estudio individual","个人自习室"],"18:30"],
+[["カフェテリア・フリースペース・進路室","Cafeteria, free space, career room","Cafetería, espacio libre y sala de orientación","食堂、自由空间、升学指导室"],"18:30"],
+[["図書館","Library","Biblioteca","图书馆"],"18:00"],[["理科館3F","Science Building 3F","Edificio de Ciencias, 3.ª planta","理科馆3楼"],"18:30"]]}],
+absence:[
+{k:"big",a:[["連絡できる時間","Report between","Horario para avisar","可联系时间"],"7:30–8:10",["保護者がClassiに入力","Parent enters it in Classi","El tutor lo registra en Classi","由家长在Classi输入"]],b:[["欠席・遅刻・早退","Absence, late, early leave","Ausencia, retraso, salida anticipada","缺勤・迟到・早退"],"Classi",["すべて同じ方法","Same method for all","Mismo método para todos","方法相同"]]},
+{k:"sec",c:"do",h:["やること","What to do","Qué hacer","要做的事"],i:[
+["欠席：保護者が7:30～8:10の間にClassiへ入力する","Absence: a parent enters it in Classi between 7:30 and 8:10.","Ausencia: el padre, madre o tutor lo registra en Classi entre las 7:30 y las 8:10.","缺勤：家长在7:30～8:10之间通过Classi输入。"],
+["遅刻・早退：保護者が7:30～8:10の間にClassiへ入力する","Late arrival / early leave: a parent enters it in Classi between 7:30 and 8:10.","Retraso / salida anticipada: el tutor lo registra en Classi entre las 7:30 y las 8:10.","迟到・早退：家长在7:30～8:10之间通过Classi输入。"],
+["事前に分かっている場合は、生徒手帳の届出欄に理由を記入し、担任へ提出する","If you know in advance, write the reason in the notification section of your student handbook and give it to your homeroom teacher.","Si lo sabes con antelación, escribe el motivo en el apartado de avisos de la agenda escolar y entrégala a tu tutor.","事先知道的话，请在学生手册的申报栏填写理由，并交给班主任。"]]},
+{k:"sec",c:"nt",h:["長期欠席","Long absence","Ausencia prolongada","长期缺勤"],i:[["病気などで7日以上欠席する場合は、医師の診断書を提出する","If you are absent for 7 days or more due to illness, etc., submit a doctor's certificate.","Si faltas 7 días o más por enfermedad u otro motivo, entrega un certificado médico.","因生病等原因缺勤7天以上时，需提交医生的诊断书。"]]},
+{k:"tbl",h:[["忌引き（家族に不幸があったとき）","Bereavement leave","Permiso por duelo","忌引（家人去世时）"],["日数","Days","Días","天数"]],r:[
+[["父母","Parents","Padres","父母"],["7日以内","Up to 7","Hasta 7","7天以内"]],[["兄弟・姉妹","Siblings","Hermanos","兄弟姐妹"],["5日以内","Up to 5","Hasta 5","5天以内"]],
+[["祖父母","Grandparents","Abuelos","祖父母"],["3日以内","Up to 3","Hasta 3","3天以内"]],[["その他の親族・姻族","Other relatives & in-laws","Otros parientes y familiares políticos","其他亲属・姻亲"],["1日以内","Up to 1","Hasta 1","1天以内"]]]},
+{k:"sec",c:"hp",h:["困ったとき","If you need help","Si necesitas ayuda","遇到困难时"],i:[["忌引きをする場合は、保護者が学校へ届け出る","For bereavement leave, a parent notifies the school.","Para el permiso por duelo, el tutor lo comunica al colegio.","办理忌引时，由家长向学校申报。"],["ここに載っていない場合は、学校の資料を確認してください","If your situation isn't listed here, please check the school's materials.","Si tu caso no aparece aquí, consulta los materiales del colegio.","此处没有的情况，请查看学校的资料。"]]}],
+disaster:[
+{k:"sec",c:"nt",h:["いちばん大切なこと","Most important","Lo más importante","最重要的事"],i:[["台風・豪雨・地震などの場合も、安全を第一にし、時間に余裕を持って行動する","In typhoons, heavy rain, earthquakes, etc., put safety first and leave plenty of time.","En tifones, lluvias intensas, terremotos, etc., prioriza la seguridad y sal con tiempo de sobra.","遇到台风、暴雨、地震等情况，也要以安全为第一，留出充裕的时间行动。"]]},
+{k:"flow",s:[
+{c:"a",w:["午前6時までに復旧","Service restored by 6:00 a.m.","Se restablece antes de las 6:00","上午6点前恢复"],d:["8:10登校。1時間目から通常授業","Arrive by 8:10. Normal classes from 1st period.","Llegada a las 8:10. Clases normales desde la 1.ª hora.","8:10到校，第1节课起正常上课。"]},
+{c:"b",w:["午前6～9時までに復旧","Restored between 6:00 and 9:00 a.m.","Se restablece entre las 6:00 y las 9:00","上午6～9点之间恢复"],d:["学校からホームページ・一斉メールで登校時間を連絡","The school announces the arrival time on its website and by mass email.","El colegio comunica la hora de llegada por la web y por correo masivo.","学校会通过网站和群发邮件通知到校时间。"]},
+{c:"c",w:["午前9時を過ぎても復旧しない","Not restored by 9:00 a.m.","No se restablece pasadas las 9:00","上午9点后仍未恢复"],d:["自宅待機・自宅学習","Stay home and study at home.","Quédate en casa y estudia en casa.","在家等待，在家学习。"]}]}],
+};
+
+const HD=["やること","What to do","Qué hacer","要做的事"],HN=["禁止・避けること","Not allowed / avoid","Prohibido / evitar","禁止・避免的事"];
+const HELP={k:"sec",c:"hp",h:["困ったとき","If you need help","Si necesitas ayuda","遇到困难时"],i:[["ここに載っていない場合は、学校の資料を確認してください","If your situation isn't listed here, please check the school's materials.","Si tu caso no aparece aquí, consulta los materiales del colegio.","此处没有的情况，请查看学校的资料。"]]};
+const NAT=["髪型は自然な状態を基本とする","Hair should be kept natural.","El peinado debe ser natural.","发型以自然为基本。"],EXT=["流行を追った極端な髪型は避ける","Avoid extreme, trend-chasing hairstyles.","Evita peinados extremos de moda.","避免追赶潮流的极端发型。"],ACC=["ネックレス・ピアス・ブレスレットなどの装飾品は禁止","Necklaces, piercings, bracelets and other accessories are prohibited.","Están prohibidos collares, piercings, pulseras y otros accesorios.","禁止佩戴项链、耳饰、手链等饰品。"];
+D.dress=[
+{k:"sec",c:"do",h:HD,i:[["学校指定の制服を着用する","Wear the school-designated uniform.","Lleva el uniforme oficial del colegio.","穿着学校指定的校服。"],["制服の規定に従う","Follow the uniform rules.","Sigue las normas del uniforme.","遵守校服规定。"],["季節に合わせて冬服・夏服を切り替える","Switch between winter and summer uniforms with the season.","Cambia entre uniforme de invierno y de verano según la estación.","根据季节更换冬装和夏装。"]]},
+{k:"big",a:[["冬服","Winter uniform","Uniforme de invierno","冬装"],"10/1–5/31",""],b:[["夏服","Summer uniform","Uniforme de verano","夏装"],"6/1–9/30",["半袖：7～9月","Short sleeves: Jul–Sep","Manga corta: jul–sep","短袖：7～9月"]]},
+{k:"sec",c:"nt",h:["移行期間","Transition periods","Periodos de transición","过渡期"],i:[["夏服への移行：5～6月","Moving to summer uniform: May–June","Paso al uniforme de verano: mayo–junio","换夏装：5～6月"],["冬服への移行：9～10月","Moving to winter uniform: Sep–Oct","Paso al uniforme de invierno: sept.–oct.","换冬装：9～10月"],["実際の服装は、気候や自分の体調に合わせて調整できる","What you actually wear can be adjusted to the weather and how you feel.","Puedes ajustar lo que llevas según el clima y tu estado de salud.","实际穿着可以根据气候和自己的身体状况进行调整。"]]},
+{k:"tabs",t:[
+{n:["男子","Boys","Chicos","男生"],b:[{k:"sec",c:"do",h:HD,i:[NAT,["前髪は目にかからない程度","Bangs should not cover the eyes.","El flequillo no debe tapar los ojos.","刘海不要遮住眼睛。"],["横髪は耳にかからない程度","Side hair should not cover the ears.","El pelo de los lados no debe cubrir las orejas.","两侧头发不要盖住耳朵。"],["整髪料を使用する場合は目立たない程度","If you use hair product, keep it subtle.","Si usas fijador, que sea discreto.","使用发胶等时不要太明显。"]]},
+{k:"sec",c:"ng",h:HN,i:[EXT,["パーマ・長髪・染髪・脱色は禁止","Perms, long hair, dyeing and bleaching are prohibited.","Están prohibidos permanentes, pelo largo, teñido y decoloración.","禁止烫发、留长发、染发、漂发。"],["眉毛を極端に細くするなどの加工は禁止","Altering eyebrows (e.g., making them very thin) is prohibited.","Está prohibido modificar las cejas (p. ej., depilarlas en exceso).","禁止修剪眉毛等（如把眉毛修得很细）。"],ACC,["髭を伸ばしたり、もみあげを極端に長くしたりしない","Don't grow a beard or extremely long sideburns.","No te dejes barba ni patillas muy largas.","不要留胡须，也不要把鬓角留得过长。"]]}]},
+{n:["女子","Girls","Chicas","女生"],b:[{k:"sec",c:"do",h:HD,i:[NAT,["髪が肩より長い場合はまとめる","If your hair is longer than your shoulders, tie it up.","Si el pelo pasa de los hombros, recógelo.","头发长过肩膀时要扎起来。"],["髪をまとめるリボン・カチューシャ・バレッタ・ゴムなどは、派手にならない範囲で使用できる","Ribbons, headbands, barrettes and hair ties may be used if they are not flashy.","Puedes usar lazos, diademas, pasadores y gomas si no son llamativos.","束发用的丝带、发箍、发夹、发绳等，只要不过于华丽就可以使用。"]]},
+{k:"sec",c:"ng",h:HN,i:[EXT,["パーマ・カール・染髪・脱色は禁止","Perms, curling, dyeing and bleaching are prohibited.","Están prohibidos permanentes, rizado, teñido y decoloración.","禁止烫发、卷发、染发、漂发。"],["化粧・眉毛を細くするなどの加工は禁止","Makeup and altering eyebrows (e.g., thinning them) are prohibited.","Están prohibidos el maquillaje y modificar las cejas (p. ej., depilarlas).","禁止化妆，禁止修细眉毛等。"],ACC]}]}]},
+HELP];
+D.exam=[{k:"tabs",t:[
+{n:["試験前","Before the exam","Antes del examen","考前"],b:[{k:"chk",i:[
+["机を整然と並べ、通路を確保する","Line up desks neatly and keep the aisles clear.","Alinea los pupitres y deja libres los pasillos.","整齐摆放桌子，留出通道。"],
+["机の上には原則として筆記具・消しゴム以外を置かない","Keep nothing on your desk except writing tools and an eraser.","No pongas nada en el pupitre salvo lápiz/bolígrafo y goma.","桌上原则上只放文具和橡皮。"],
+["教科書・ノートなどはカバンにしまう","Put textbooks and notebooks in your bag.","Guarda libros y cuadernos en la mochila.","课本、笔记本等放进书包。"],
+["カバンは机の左側または椅子の下に置く","Place your bag to the left of your desk or under your chair.","Deja la mochila a la izquierda del pupitre o bajo la silla.","书包放在桌子左侧或椅子下面。"],
+["その他の荷物はロッカーなどに整理する","Store other belongings in your locker.","Guarda las demás cosas en la taquilla.","其他物品整理放入储物柜等处。"],
+["監督の先生が入室したら、すぐに荷物を整理する","When the proctor enters, put your things away right away.","Cuando entre el profesor vigilante, ordena tus cosas enseguida.","监考老师进入教室后，立刻整理好物品。"],
+["高校生は携帯電話の電源を切り、カバンの中に入れる","High school students turn their phones off and put them in their bags.","Los alumnos de kōkō apagan el móvil y lo guardan en la mochila.","高中生要关闭手机电源并放进书包里。"]]}]},
+{n:["試験中","During the exam","Durante el examen","考试中"],b:[{k:"chk",i:[
+["試験開始の挨拶後は静かに待つ","Wait quietly after the greeting that starts the exam.","Tras el saludo de inicio, espera en silencio.","考试开始的问候之后，安静等待。"],
+["答案用紙が配られたら、裏返した状態で待つ","When answer sheets are handed out, keep them face down.","Cuando repartan las hojas, déjalas boca abajo.","发下答题纸后，保持背面朝上等待。"],
+["「始め」の合図があるまで筆記用具を持たない","Don't pick up your pen until the signal to start.","No cojas el bolígrafo hasta la señal de inicio.","听到“开始”的信号前，不要拿笔。"],
+["質問がある場合は静かに手を挙げる","If you have a question, raise your hand quietly.","Si tienes una duda, levanta la mano en silencio.","有问题时，安静地举手。"],
+["他の人と話さない","Don't talk to others.","No hables con otros.","不与他人交谈。"],
+["周囲を見回さない","Don't look around.","No mires a tu alrededor.","不要东张西望。"],
+["物の貸し借りをしない","Don't lend or borrow anything.","No prestes ni pidas prestado nada.","不借也不借出物品。"],
+["居眠りなどで姿勢を乱さない","Don't doze off or slouch.","No te duermas ni adoptes una postura descuidada.","不要打瞌睡或姿势散漫。"],
+["終了の合図があったら筆記具を置き、静かに待つ","At the end signal, put your pen down and wait quietly.","Con la señal de fin, deja el bolígrafo y espera en silencio.","听到结束信号后放下笔，安静等待。"],
+["答案用紙の回収が終わるまで話さない","Don't talk until all answer sheets are collected.","No hables hasta que hayan recogido todas las hojas.","答题纸收完之前不要说话。"]]}]}]},HELP];
+const EL=[["日時","Date & time","Fecha y hora","日时"],["場所","Place","Lugar","地点"],["対象","For","Dirigido a","对象"],["内容","About","Contenido","内容"],["参加方法","How to join","Cómo participar","参加方式"]];
+const EP=["予定","Planned","Previsto","预定"],SO=["学校の案内を確認してください","Please check the school's announcements.","Consulta los comunicados del colegio.","请查看学校的通知。"];
+const EA=["事前に参加希望のGoogleフォームを配信。高校2年生を優先し、超過した場合は抽選","A Google Form for sign-up will be shared in advance. 2nd-year students get priority; if over capacity, a lottery is held.","Se enviará antes un formulario de Google para apuntarse. Tienen prioridad los de 2.º de kōkō; si se supera el cupo, habrá sorteo.","会事先发放报名用的Google表单。高二学生优先，超出名额时抽签。"];
+const E12=["高校1・2年生（上限250名程度）","High school years 1 & 2 (Grades 10–11), about 250 max","1.º y 2.º de kōkō (unas 250 plazas como máximo)","高一、高二学生（上限约250人）"];
+const BB=["吹奏楽部・ダンス部","Brass Band & Dance Club","Banda de música y club de baile","管乐部・舞蹈部"],MU=["音楽企画","Music event","Evento musical","音乐企划"],KY=["後夜祭","After-festival party (kōyasai)","Fiesta posterior al festival (kōyasai)","后夜祭"];
+D.events=[{k:"sec",c:"nt",h:["お知らせ","Note","Aviso","提示"],i:[["日時は予定です。最新情報は学校の案内を確認してください","Dates are tentative. Please check the school's announcements for updates.","Las fechas son provisionales. Consulta los comunicados del colegio.","日期为预定，最新信息请以学校通知为准。"]]},
+{k:"ev",n:KY,e:[["10月7日（水）16:45～17:45","Wed, Oct 7, 16:45–17:45","Mié 7 oct., 16:45–17:45","10月7日（周三）16:45～17:45"],["JMホール","JM Hall","JM Hall","JM厅"],E12,KY,EA]},
+{k:"ev",n:BB,e:[["10月10日（土）13:30～14:30","Sat, Oct 10, 13:30–14:30","Sáb 10 oct., 13:30–14:30","10月10日（周六）13:30～14:30"],SO,["全生徒","All students","Todo el alumnado","全体学生"],BB,EA]},
+{k:"ev",n:MU,e:[["12月15日（火）午後（14日（月）午後にリハーサル予定）","Tue, Dec 15, afternoon (rehearsal planned for the afternoon of Mon, Dec 14)","Mar 15 dic., por la tarde (ensayo previsto la tarde del lun 14)","12月15日（周二）下午（14日（周一）下午预定彩排）"],SO,E12,MU,EA]}];
+function col(b,t){if(b.i)t.push(...b.i.map(x));if(b.s)b.s.forEach(s=>t.push(x(s.w)+" "+x(s.d)));if(b.r)b.r.forEach(r=>t.push(x(r[0])+" "+x(r[1])));if(b.t)b.t.forEach(z=>z.b.forEach(c=>col(c,t)));if(b.e)t.push(x(b.n)+" "+x(b.e[2]))}
+const $=id=>document.getElementById(id);
+function blk(b){let h="";
+if(b.k=="big")h=`<div class="big">${[b.a,b.b].map(q=>`<div class="bg"><small>${x(q[0])}</small><div>${q[1]}</div><em>${x(q[2])}</em></div>`).join("")}</div>`;
+else if(b.k=="sec")h=`<div class="sec ${b.c}"><h3>${x(b.h)}</h3><ul>${b.i.map(i=>`<li>${x(i)}</li>`).join("")}</ul></div>`;
+else if(b.k=="tbl")h=`<h2>${x(b.h[0])}</h2><div class="tw"><table><tr><th>${x(b.h[0]).slice(0,0)}</th><th>${x(b.h[1])}</th></tr>${b.r.map(r=>`<tr><td>${x(r[0])}</td><td class="t">${x(r[1])}</td></tr>`).join("")}</table></div>`;
+else if(b.k=="flow")h=`<div class="flow">${b.s.map((s,i)=>`${i?'<div class="ar">↓</div>':""}<div class="fs ${s.c}"><b>${x(s.w)}</b>${x(s.d)}</div>`).join("")}</div>`;
+else if(b.k=="tabs")h=`<div class="tabs"><div class="tbn">${b.t.map((z,i)=>`<button class="${i?"":"on"}" data-t="${i}">${x(z.n)}</button>`).join("")}</div>${b.t.map((z,i)=>`<div class="tp" ${i?"hidden":""}>${z.b.map(blk).join("")}</div>`).join("")}</div>`;
+else if(b.k=="chk")h=`<div class="sec do"><ul class="ck">${b.i.map(i=>`<li><label><input type="checkbox"><span>${x(i)}</span></label></li>`).join("")}</ul></div>`;
+else if(b.k=="ev")h=`<div class="ev"><span class="tag">${x(EP)}</span><h3>${x(b.n)}</h3><dl>${b.e.map((v,i)=>`<dt>${x(EL[i])}</dt><dd>${x(v)}</dd>`).join("")}</dl></div>`;
+return h}
+function idx(q){q=q.trim().toLowerCase();if(!q)return"";const o=[];
+for(const p in D)D[p].forEach(b=>{const t=[];col(b,t);
+t.forEach(s=>{if(s.toLowerCase().includes(q))o.push([p,s])})});
+return o.length?o.map(([p,s])=>`<a href="#/${p}"><small>${x(P.find(z=>z[0]==p)[2])}</small><br>${s}</a>`).join(""):`<p class="sub">${x(U.no)}</p>`}
+function home(){const c=P.slice(1).map(p=>`<a class="cat" href="#/${p[0]}"><div class="ic">${p[1]}</div><b>${x(p[2])}</b><span>${x(p[3])}</span></a>`).join("");
+return`<div class="hero"><h1>${x(U.h1)}</h1><p>${x(U.h2)}</p></div>
+<div class="search"><input id="q" type="search" placeholder="🔍 ${x(U.sp)}" aria-label="${x(U.sp)}"><div class="chips">${x(U.kw).map(k=>`<button data-k="${k}">${k}</button>`).join("")}</div><div class="res" id="rs"></div></div><div class="grid">${c}</div>`}
+function route(){const r=(location.hash.replace("#/","")||"home"),p=P.find(z=>z[0]==r)||P[0];
+document.documentElement.lang=["ja","en","es","zh-CN"][g];
+$("sn").textContent=x(U.sn);$("dc").textContent=x(U.dc);
+$("lg").innerHTML=LN.map((l,i)=>`<button class="${i==g?"on":""}" data-l="${i}" aria-label="${l}">${l}</button>`).join("");
+$("nv").innerHTML=P.map(z=>`<a href="#/${z[0]}" class="${z[0]==p[0]?"on":""}">${z[1]} ${x(z[2])}</a>`).join("");
+let h;if(p[0]=="home")h=home();else h=`<h2 style="margin-top:4px">${p[1]} ${x(p[2])}</h2>`+(D[p[0]]?D[p[0]].map(blk).join(""):`<div class="sec nt">${x(U.soon)}</div>`);
+$("app").innerHTML=h;if(p[0]=="home"){const q=$("q");q.oninput=()=>$("rs").innerHTML=idx(q.value);
+document.querySelectorAll(".chips button").forEach(b=>b.onclick=()=>{q.value=b.dataset.k;q.oninput()})}}
+$("lg").onclick=e=>{const l=e.target.dataset.l;if(l==null)return;g=+l;try{localStorage.setItem("mjl",g)}catch(_){}route()};
+$("app").onclick=e=>{const t=e.target.closest(".tbn button");if(!t)return;const w=t.closest(".tabs");w.querySelectorAll(":scope>.tbn button").forEach(b=>b.classList.toggle("on",b==t));w.querySelectorAll(":scope>.tp").forEach((q,i)=>q.hidden=i!=+t.dataset.t)};
+addEventListener("hashchange",()=>{route();scrollTo(0,0)});route();
+</script></body></html>
